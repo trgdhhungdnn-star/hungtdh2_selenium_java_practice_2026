@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.By;
+import elements.PageElement;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
@@ -10,23 +10,18 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    private static final By UserName = By.id("user-name");
-    private static final By PassWord = By.id("password");
-    private static final By LoginBtn = By.id("login-button");
-    private static final By ErrorMessage = By.xpath("//*[@data-test='error']");
-
     public void loginAs (String username, String password) {
-        type(UserName, username);
-        type(PassWord, password);
-        click(LoginBtn);
+        type(PageElement.Login.UserName, username);
+        type(PageElement.Login.PassWord, password);
+        click(PageElement.Login.LoginBtn);
     }
 
     public String getErrorMessage() {
-        return getText(ErrorMessage);
+        return getText(PageElement.Login.ErrorMessage);
     }
 
     public boolean isLoginPageDisplayed() {
-        return isDisplayed(LoginBtn);
+        return isDisplayed(PageElement.Login.LoginBtn);
     }
 
 }
