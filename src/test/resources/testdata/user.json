@@ -10,5 +10,10 @@
   "lockedUser": {
     "username": "locked_out_user",
     "password": "secret_sauce"
+  },
+  "userInformation": {
+    "firstname": "Hung",
+    "lastname": "Truong",
+    "zipcode": "00000"
   }
 }

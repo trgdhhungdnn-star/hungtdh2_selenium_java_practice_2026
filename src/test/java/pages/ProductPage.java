@@ -1,7 +1,7 @@
 package pages;
 
 import base.BasePage;
-import org.openqa.selenium.By;
+import elements.PageElement;
 import org.openqa.selenium.WebDriver;
 
 public class ProductPage extends BasePage {
@@ -10,9 +10,20 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    private final By homeTitle = By.xpath("//*[@data-test='title']");
-
     public boolean isProductPageDisplayed() {
-        return isDisplayed(homeTitle);
+        return isDisplayed(PageElement.Product.homeTitle);
     }
+
+    public String getLabsBackpackName() {
+        return driver.findElement(PageElement.Product.LabsBackpackName).getText();
+    }
+
+    public void clickAddLabsBackpack() {
+        driver.findElement(PageElement.Product.LabsBackpackAdd).click();
+    }
+
+    public void clickToCart() {
+        driver.findElement(PageElement.Product.ShoppingCartLink).click();
+    }
+
 }
