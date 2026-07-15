@@ -20,6 +20,7 @@ public class ProductPage extends BasePage {
 
     public void clickAddLabsBackpack() {
         driver.findElement(PageElement.Product.LabsBackpackAdd).click();
+        logger.info("Add Labs Backpack to Cart");
     }
 
     public void clickToCart() {

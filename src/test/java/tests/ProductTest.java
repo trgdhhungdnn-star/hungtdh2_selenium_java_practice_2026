@@ -1,12 +1,15 @@
 package tests;
 
 import base.BaseTest;
+import listeners.TestListener;
 import models.User;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.*;
 import untils.JsonUtils;
 
+@Listeners(TestListener.class)
 public class ProductTest extends BaseTest {
     User user = JsonUtils.getUser("validUser");
     @Test

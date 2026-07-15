@@ -2,6 +2,8 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
@@ -10,6 +12,7 @@ import pages.ProductPage;
 import java.time.Duration;
 
 public class BaseTest {
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected ProductPage productPage;
@@ -22,6 +25,8 @@ public class BaseTest {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+        logger.info("Opening Saucedemo URL");
+
         driver.get("https://www.saucedemo.com/");
 
         loginPage = new LoginPage(driver);
@@ -32,5 +37,9 @@ public class BaseTest {
     public void tearDown() {
         if (driver != null)
             driver.quit();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }

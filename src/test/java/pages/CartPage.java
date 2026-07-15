@@ -16,5 +16,6 @@ public class CartPage extends BasePage {
 
     public void clickCheckoutBtn() {
         driver.findElement(PageElement.YourCart.CheckoutBtn).click();
+        logger.info("Click Checkout button");
     }
 }
