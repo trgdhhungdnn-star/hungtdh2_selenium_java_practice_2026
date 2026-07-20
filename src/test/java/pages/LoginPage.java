@@ -3,6 +3,7 @@ package pages;
 import base.BasePage;
 import elements.PageElement;
 import org.openqa.selenium.WebDriver;
+import org.testng.Reporter;
 
 public class LoginPage extends BasePage {
 
@@ -16,6 +17,7 @@ public class LoginPage extends BasePage {
         type(PageElement.Login.PassWord, password);
         click(PageElement.Login.LoginBtn);
         logger.info("Login Completed");
+        Reporter.log("Login Success", true);
     }
 
     public String getErrorMessage() {

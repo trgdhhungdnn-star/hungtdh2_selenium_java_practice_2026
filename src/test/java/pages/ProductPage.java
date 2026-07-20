@@ -4,6 +4,8 @@ import base.BasePage;
 import elements.PageElement;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 public class ProductPage extends BasePage {
 
     public ProductPage(WebDriver driver) {
@@ -25,6 +27,12 @@ public class ProductPage extends BasePage {
 
     public void clickToCart() {
         driver.findElement(PageElement.Product.ShoppingCartLink).click();
+    }
+
+    public void clickAddToCardMulti(List<String> productNames) {
+        for (String productName : productNames) {
+            click(PageElement.Product.addToCartBtn(productName));
+        }
     }
 
 }

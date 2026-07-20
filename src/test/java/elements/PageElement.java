@@ -17,11 +17,17 @@ public class PageElement {
         public static final By LabsBackpackName = By.xpath("//div[text()='Sauce Labs Backpack']");
         public static final By LabsBackpackAdd = By.id("add-to-cart-sauce-labs-backpack");
         public static final By ShoppingCartLink = By.xpath("//*[@data-test='shopping-cart-link']");
+        public static By addToCartBtn(String productName) {
+            return By.xpath("//div[text()='" + productName + "']" +
+                    "/ancestor::div[@class='inventory_item']" +
+                    "//button");
+        }
     }
 
     public static final class YourCart {
         public static final By InventoryItem = By.xpath("//*[@data-test='inventory-item-name']");
         public static final By CheckoutBtn = By.xpath("//*[@data-test='checkout']");
+        public static final By InventoryItemList = By.xpath("//div[@data-test='inventory-item-name']");
     }
 
     public static final class CheckOutInformation {
