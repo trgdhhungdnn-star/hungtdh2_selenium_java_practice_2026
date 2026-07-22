@@ -85,4 +85,20 @@ public class ProductTest extends BaseTest {
         String actualCompletedMess = checkoutCompletePage.CheckoutCompleteTitle();
         Assert.assertEquals(actualCompletedMess,expectedCompleteMess);
     }
+
+    @Test
+    public void TC5_CheckCartBadgeNumber() {
+        User userLogin = JsonUtils.getUser("validUser");
+        loginPage.loginAs(userLogin.getUsername(),userLogin.getPassword());
+        productPage = new ProductPage(driver);
+        List<String> ProductNames = Arrays.asList(
+                "Sauce Labs Backpack",
+                "Sauce Labs Bolt T-Shirt",
+                "Sauce Labs Fleece Jacket"
+        );
+        productPage.clickAddToCardMulti(ProductNames);
+        Assert.assertEquals(productPage.getCartBadgeNumber(), 3);
+        productPage.clickRemoveLadsBackpack();
+        Assert.assertEquals(productPage.getCartBadgeNumber(), 2);
+    }
 }

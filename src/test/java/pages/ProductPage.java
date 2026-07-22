@@ -35,4 +35,13 @@ public class ProductPage extends BasePage {
         }
     }
 
+    public void clickRemoveLadsBackpack() {
+        driver.findElement(PageElement.Product.LabsBackpackRemove).click();
+        logger.info("Remove Labs Backpack from Cart");
+    }
+
+    public int getCartBadgeNumber() {
+        return Integer.parseInt(getText(PageElement.Product.ShoppingCartBadge));
+    }
+
 }

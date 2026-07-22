@@ -22,6 +22,8 @@ public class PageElement {
                     "/ancestor::div[@class='inventory_item']" +
                     "//button");
         }
+        public static final By LabsBackpackRemove = By.id("remove-sauce-labs-backpack");
+        public static final By ShoppingCartBadge = By.xpath("//*[@data-test='shopping-cart-badge']");
     }
 
     public static final class YourCart {
